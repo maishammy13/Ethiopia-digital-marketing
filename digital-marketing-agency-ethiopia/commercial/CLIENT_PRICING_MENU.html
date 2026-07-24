@@ -1,446 +1,606 @@
-<title>Service &amp; Pricing Menu</title>
+<title>Sigma Marketing Agency: Service &amp; Pricing Menu</title>
 <style>
   :root{
-    --ink:#1C1B17;
-    --ink-soft:#4A473D;
-    --paper:#FAF7F1;
-    --paper-raised:#FFFFFF;
-    --pine:#1F4B3F;
-    --pine-dim:#35604F;
-    --pine-tint:#E7EEEA;
-    --gold:#B8842E;
-    --gold-soft:#E4C88E;
-    --line:#DDD5C3;
-    --shadow: 0 1px 2px rgba(28,27,23,0.04), 0 8px 24px -12px rgba(28,27,23,0.18);
+    --bg:#F6F3EE;
+    --surface:#FBF9F6;
+    --surface-2:#EFEAE2;
+    --text:#1F1D1A;
+    --muted:#6F6A61;
+    --border:rgba(31,29,26,0.13);
+    --accent:#1F5C4C;
+    --accent-strong:#163F34;
+    --on-accent:#F5F2EA;
+
+    --feat-bg:#1B2420;
+    --feat-bg-2:#212B26;
+    --feat-text:#F3F0E6;
+    --feat-muted:#AFA99C;
+    --feat-border:rgba(255,255,255,0.14);
+    --feat-accent:#8FBFAE;
+
+    --shadow: 0 14px 32px -18px rgba(20,18,15,0.28);
   }
   :root[data-theme="dark"]{
-    --ink:#F3F0E8;
-    --ink-soft:#C9C3B3;
-    --paper:#141814;
-    --paper-raised:#1B211C;
-    --pine:#7FBBA4;
-    --pine-dim:#5C9683;
-    --pine-tint:#1D2A22;
-    --gold:#E0B563;
-    --gold-soft:#8A6A2F;
-    --line:#33362D;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    --bg:#15130F;
+    --surface:#1B1815;
+    --surface-2:#211E19;
+    --text:#F1EDE4;
+    --muted:#A29B8C;
+    --border:rgba(241,237,228,0.12);
+    --accent:#7FBBA4;
+    --accent-strong:#9ED2BE;
+    --on-accent:#122019;
+
+    --feat-bg:#0F1613;
+    --feat-bg-2:#131C18;
+    --feat-text:#F1EDE4;
+    --feat-muted:#93A69D;
+    --feat-border:rgba(241,237,228,0.14);
+    --feat-accent:#9ED2BE;
+
+    --shadow: 0 14px 32px -18px rgba(0,0,0,0.6);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ink:#F3F0E8;
-      --ink-soft:#C9C3B3;
-      --paper:#141814;
-      --paper-raised:#1B211C;
-      --pine:#7FBBA4;
-      --pine-dim:#5C9683;
-      --pine-tint:#1D2A22;
-      --gold:#E0B563;
-      --gold-soft:#8A6A2F;
-      --line:#33362D;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+      --bg:#15130F;
+      --surface:#1B1815;
+      --surface-2:#211E19;
+      --text:#F1EDE4;
+      --muted:#A29B8C;
+      --border:rgba(241,237,228,0.12);
+      --accent:#7FBBA4;
+      --accent-strong:#9ED2BE;
+      --on-accent:#122019;
+
+      --feat-bg:#0F1613;
+      --feat-bg-2:#131C18;
+      --feat-text:#F1EDE4;
+      --feat-muted:#93A69D;
+      --feat-border:rgba(241,237,228,0.14);
+      --feat-accent:#9ED2BE;
+
+      --shadow: 0 14px 32px -18px rgba(0,0,0,0.6);
     }
   }
 
   *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
   body{
     margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family: -apple-system, "Segoe UI", "Noto Sans Ethiopic", "Helvetica Neue", Arial, sans-serif;
-    line-height:1.55;
+    background:var(--bg);
+    color:var(--text);
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans Ethiopic", sans-serif;
+    font-size:16px;
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  .display{
-    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Noto Serif Ethiopic", serif;
+  .serif{
+    font-family: ui-serif, "New York", "Iowan Old Style", Georgia, "Times New Roman", serif;
   }
   .num{
     font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum" 1;
+    font-feature-settings:"tnum" 1;
+  }
+  a{ color:inherit; }
+  h1,h2,h3,p{ margin:0; }
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
   }
 
-  .weave{
-    height:6px;
-    background-image: repeating-linear-gradient(
-      -45deg,
-      var(--gold) 0px, var(--gold) 5px,
-      transparent 5px, transparent 10px
-    );
-    opacity:0.55;
-  }
-
-  .wrap{
-    max-width:1080px;
+  .page{
+    max-width:1180px;
     margin:0 auto;
-    padding: 0 28px 96px;
+    padding: clamp(48px,7vw,96px) clamp(20px,5vw,56px) 0;
   }
 
-  header.masthead{
-    padding: 56px 0 40px;
-    text-align:center;
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:640px;
+    padding-bottom:clamp(56px,8vw,88px);
+    border-bottom:1px solid var(--border);
   }
   .eyebrow{
-    text-transform:uppercase;
-    letter-spacing:0.16em;
     font-size:12px;
-    color:var(--gold);
     font-weight:600;
-    margin:0 0 14px;
-  }
-  h1.agency-name{
-    font-size:clamp(2rem, 5vw, 3.1rem);
-    margin:0 0 10px;
-    text-wrap:balance;
-    letter-spacing:-0.01em;
-    color:var(--pine);
-  }
-  .tagline{
-    font-size:17px;
-    color:var(--ink-soft);
-    max-width:560px;
-    margin:0 auto;
-    text-wrap:balance;
-  }
-
-  .intro{
-    max-width:640px;
-    margin:36px auto 0;
-    text-align:center;
-    font-size:16px;
-    color:var(--ink-soft);
-  }
-
-  section{margin-top:64px;}
-  h2.section-title{
-    font-size:13px;
-    text-transform:uppercase;
     letter-spacing:0.14em;
-    color:var(--ink-soft);
-    text-align:center;
-    margin:0 0 36px;
-    font-weight:700;
-    font-family: -apple-system, "Segoe UI", sans-serif;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:18px;
+  }
+  h1.headline{
+    font-size:clamp(2.1rem,4.4vw,3.15rem);
+    font-weight:500;
+    line-height:1.12;
+    letter-spacing:-0.015em;
+    text-wrap:balance;
+    color:var(--text);
+  }
+  .lede{
+    margin-top:22px;
+    font-size:17px;
+    color:var(--muted);
+    max-width:52ch;
+  }
+  .hero-cta{
+    margin-top:32px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:600;
+    padding:13px 22px;
+    border:1px solid var(--text);
+    border-radius:3px;
+    text-decoration:none;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .hero-cta:hover{
+    background:var(--text);
+    color:var(--bg);
   }
 
-  .tiers{
+  /* ---------- Package grid ---------- */
+  .packages{
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:22px;
+    grid-template-columns: 0.92fr 1.18fr 0.98fr;
+    gap:20px;
+    padding:clamp(48px,7vw,72px) 0;
     align-items:stretch;
   }
-  @media (max-width: 860px){
-    .tiers{grid-template-columns:1fr; max-width:460px; margin:0 auto;}
+  @media (max-width:920px){
+    .packages{ grid-template-columns:1fr; max-width:520px; margin:0 auto; padding-left:0; padding-right:0; }
   }
 
-  .card{
-    background:var(--paper-raised);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:32px 26px 28px;
+  .pkg{
     display:flex;
     flex-direction:column;
-    box-shadow: var(--shadow);
-    position:relative;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:34px 28px;
   }
-  .card.featured{
-    border:1px solid var(--gold);
-    box-shadow: 0 1px 2px rgba(28,27,23,0.04), 0 16px 36px -14px rgba(184,132,46,0.35);
-    transform: translateY(-6px);
+  .pkg-featured{
+    background: linear-gradient(180deg, var(--feat-bg-2), var(--feat-bg));
+    border-color:var(--feat-border);
+    color:var(--feat-text);
+    padding:44px 34px;
+    box-shadow:var(--shadow);
   }
-  @media (max-width:860px){
-    .card.featured{transform:none;}
+
+  .pkg-kicker{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:8px;
   }
-  .ribbon{
-    position:absolute;
-    top:-13px; left:50%;
-    transform:translateX(-50%);
-    background:var(--gold);
-    color:#20160a;
-    font-size:11px;
+  .pkg-featured .pkg-kicker{ color:var(--feat-muted); }
+  .pkg-kicker .n{
+    color:var(--accent);
+    font-weight:700;
+  }
+  .pkg-featured .pkg-kicker .n{ color:var(--feat-accent); }
+
+  .recommended-tag{
+    margin-left:auto;
+    font-size:10.5px;
     font-weight:700;
     letter-spacing:0.08em;
     text-transform:uppercase;
-    padding:5px 14px;
+    color:var(--feat-accent);
+    border:1px solid var(--feat-border);
     border-radius:999px;
+    padding:4px 10px;
+  }
+
+  .pkg-name{
+    margin-top:14px;
+    font-size:1.7rem;
+    font-style:italic;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  .pkg-for{
+    margin-top:10px;
+    font-size:14.5px;
+    color:var(--muted);
+    max-width:34ch;
+  }
+  .pkg-featured .pkg-for{ color:var(--feat-muted); }
+
+  .pkg-prices{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .pkg-featured .pkg-prices{ border-color:var(--feat-border); }
+
+  .price-label{
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .pkg-featured .price-label{ color:var(--feat-muted); }
+  .price-value{
+    margin-top:5px;
+    font-size:1.65rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .price-value .unit{
+    font-size:13px;
+    font-weight:600;
+    color:var(--muted);
+    margin-left:4px;
+  }
+  .pkg-featured .price-value .unit{ color:var(--feat-muted); }
+  .price-note{
+    font-size:13px;
+    color:var(--muted);
+    font-style:italic;
+  }
+  .pkg-featured .price-note{ color:var(--feat-muted); }
+
+  .pkg-outcome{
+    margin-top:24px;
+    padding-left:14px;
+    border-left:2px solid var(--accent);
+    font-size:14.5px;
+    line-height:1.55;
+  }
+  .pkg-featured .pkg-outcome{ border-left-color:var(--feat-accent); }
+
+  .stat-row{
+    margin-top:24px;
+    display:flex;
+    gap:22px;
+  }
+  .stat .k{
+    display:block;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .pkg-featured .stat .k{ color:var(--feat-muted); }
+  .stat .v{
+    display:block;
+    margin-top:3px;
+    font-size:14.5px;
+    font-weight:600;
+  }
+
+  .pkg-features{
+    list-style:none;
+    margin:26px 0 0;
+    padding:22px 0 0;
+    border-top:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+    flex:1;
+  }
+  .pkg-featured .pkg-features{ border-color:var(--feat-border); }
+  .pkg-features li{
+    display:flex;
+    gap:10px;
+    font-size:14.5px;
+    line-height:1.45;
+  }
+  .pkg-features li::before{
+    content:"\2713";
+    flex:0 0 auto;
+    color:var(--accent);
+    font-size:12px;
+    margin-top:3px;
+  }
+  .pkg-featured .pkg-features li::before{ color:var(--feat-accent); }
+
+  .pkg-includes-note{
+    margin-top:14px;
+    font-size:12.5px;
+    color:var(--muted);
+    font-style:italic;
+  }
+  .pkg-featured .pkg-includes-note{ color:var(--feat-muted); }
+
+  .pkg-cta{
+    margin-top:28px;
+    display:block;
+    text-align:center;
+    padding:14px 20px;
+    border-radius:3px;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    border:1px solid var(--text);
+    color:var(--text);
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease, opacity .15s ease;
+  }
+  .pkg-cta:hover{ background:var(--text); color:var(--bg); }
+  .pkg-featured .pkg-cta{
+    border-color:var(--feat-text);
+    color:var(--feat-bg);
+    background:var(--feat-text);
+    padding:15px 20px;
+  }
+  .pkg-featured .pkg-cta:hover{ opacity:0.86; }
+
+  /* ---------- Explainer / comparison ---------- */
+  .explainer{
+    padding:clamp(48px,7vw,72px) 0;
+    border-top:1px solid var(--border);
+  }
+  h2.section-h{
+    font-size:1.6rem;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  .section-sub{
+    margin-top:10px;
+    font-size:15px;
+    color:var(--muted);
+    max-width:56ch;
+  }
+
+  .compare-wrap{ margin-top:34px; }
+  table.compare{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table.compare th, table.compare td{
+    text-align:left;
+    padding:14px 16px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  table.compare th{
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  table.compare td:first-child, table.compare th:first-child{
+    color:var(--muted);
+    font-size:12.5px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
     white-space:nowrap;
   }
+  table.compare tr:last-child td{ border-bottom:none; }
 
-  .tier-kicker{
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.1em;
-    color:var(--gold);
-    font-weight:700;
-    margin:6px 0 4px;
-  }
-  .tier-name{
-    font-size:24px;
-    margin:0 0 6px;
-    color:var(--pine);
-  }
-  .tier-for{
-    font-size:14px;
-    color:var(--ink-soft);
-    margin:0 0 22px;
-    min-height:42px;
-  }
-
-  .price-block{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
+  .compare-stack{ display:none; margin-top:34px; }
+  .stack-row{
     padding:18px 0;
-    margin-bottom:22px;
+    border-bottom:1px solid var(--border);
   }
-  .price-line{
+  .stack-row:last-child{ border-bottom:none; }
+  .stack-row .row-label{
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+  .stack-item{ padding:6px 0; font-size:14.5px; }
+  .stack-item b{ font-weight:600; }
+
+  @media (max-width:760px){
+    .compare-wrap{ display:none; }
+    .compare-stack{ display:block; }
+  }
+
+  .scope-note{
+    margin-top:28px;
+    font-size:13.5px;
+    color:var(--muted);
+    max-width:64ch;
+  }
+
+  /* ---------- Add-ons ---------- */
+  .addons{
+    padding:clamp(40px,6vw,60px) 0;
+    border-top:1px solid var(--border);
+  }
+  .addon-list{ margin-top:30px; }
+  .addon-row{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
-    gap:10px;
+    gap:20px;
+    padding:18px 0;
+    border-bottom:1px solid var(--border);
   }
-  .price-line + .price-line{ margin-top:6px; }
-  .price-label{
-    font-size:13px;
-    color:var(--ink-soft);
-  }
-  .price-amount{
-    font-size:19px;
-    font-weight:700;
-    color:var(--ink);
-    white-space:nowrap;
-  }
-  .price-amount .cur{ font-size:12px; font-weight:600; color:var(--ink-soft); margin-right:3px;}
-
-  ul.includes{
-    list-style:none;
-    margin:0 0 24px;
-    padding:0;
-    flex:1;
-  }
-  ul.includes li{
-    display:flex;
-    gap:10px;
-    padding:7px 0;
+  .addon-row:last-child{ border-bottom:none; }
+  .addon-name{ font-size:15.5px; font-weight:600; }
+  .addon-desc{ margin-top:5px; font-size:13.5px; color:var(--muted); max-width:52ch; }
+  .addon-price{
     font-size:14.5px;
-    color:var(--ink);
-  }
-  ul.includes li::before{
-    content:"";
-    flex:0 0 auto;
-    width:7px; height:7px;
-    margin-top:7px;
-    border-radius:1px;
-    background:var(--pine);
-    transform:rotate(45deg);
-  }
-  .includes .prefix{
-    color:var(--ink-soft);
-    font-style:italic;
-  }
-
-  .you-do{
-    background:var(--pine-tint);
-    border-radius:3px;
-    padding:14px 16px;
-    font-size:13.5px;
-    color:var(--ink);
-  }
-  .you-do b{ color:var(--pine); }
-
-  /* Responsibility strip */
-  .resp-table{
-    width:100%;
-    border-collapse:collapse;
-    font-size:14px;
-    background:var(--paper-raised);
-    border:1px solid var(--line);
-  }
-  .resp-table th, .resp-table td{
-    padding:12px 16px;
-    text-align:left;
-    border-bottom:1px solid var(--line);
-  }
-  .resp-table th{
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--ink-soft);
-    font-weight:700;
-  }
-  .resp-table td:not(:first-child), .resp-table th:not(:first-child){
-    text-align:center;
-  }
-  .resp-table tr:last-child td{ border-bottom:none; }
-  .resp-table td:first-child{ color:var(--ink-soft); font-size:13.5px; }
-  .tablewrap{ overflow-x:auto; }
-  .dot{ display:inline-block; width:9px; height:9px; border-radius:50%; }
-  .dot.low{ background:var(--gold-soft); }
-  .dot.mid{ background:var(--gold); }
-  .dot.high{ background:var(--pine); }
-
-  /* Add-ons ledger */
-  .ledger{
-    background:var(--paper-raised);
-    border:1px solid var(--line);
-    border-radius:4px;
-    overflow:hidden;
-  }
-  .ledger-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    padding:18px 22px;
-    border-bottom:1px dashed var(--line);
-  }
-  .ledger-row:last-child{ border-bottom:none; }
-  .ledger-name{ font-weight:700; font-size:15px; }
-  .ledger-desc{ font-size:13.5px; color:var(--ink-soft); margin-top:3px; }
-  .ledger-price{
-    font-size:16px;
-    font-weight:700;
+    font-weight:600;
+    color:var(--accent);
     white-space:nowrap;
-    color:var(--pine);
   }
 
-  .note{
-    max-width:680px;
-    margin:28px auto 0;
-    text-align:center;
-    font-size:13.5px;
-    color:var(--ink-soft);
-    line-height:1.6;
+  /* ---------- Footer CTA ---------- */
+  .cta-footer{
+    padding:clamp(56px,8vw,84px) 0 clamp(72px,9vw,100px);
+    border-top:1px solid var(--border);
   }
-
-  footer{
-    margin-top:72px;
-    text-align:center;
+  .cta-footer h2{
+    font-size:clamp(1.7rem,3.4vw,2.3rem);
+    font-weight:500;
+    letter-spacing:-0.01em;
+    max-width:24ch;
+    text-wrap:balance;
   }
-  .cta{
+  .cta-footer-row{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:22px;
+  }
+  .btn-main{
     display:inline-block;
-    background:var(--pine);
-    color:#F5F1E6;
-    padding:14px 34px;
+    background:var(--accent);
+    color:var(--on-accent);
+    padding:15px 28px;
     border-radius:3px;
-    font-weight:700;
-    font-size:15px;
-    letter-spacing:0.01em;
+    font-weight:600;
+    font-size:14.5px;
+    text-decoration:none;
+    transition: background-color .15s ease;
   }
-  .contact-line{
-    margin-top:16px;
-    font-size:13.5px;
-    color:var(--ink-soft);
-  }
-
-  @media (prefers-reduced-motion: no-preference){
-    .card{ transition: box-shadow 0.2s ease; }
-  }
+  .btn-main:hover{ background:var(--accent-strong); }
+  .contact-line{ font-size:13.5px; color:var(--muted); }
 </style>
 
-<div class="weave"></div>
-<div class="wrap">
+<div class="page">
 
-  <header class="masthead">
-    <p class="eyebrow">Digital Marketing, Done Right For Ethiopian Businesses</p>
-    <h1 class="agency-name display">[Your Agency Name]</h1>
-    <p class="tagline">A professional, trustworthy digital presence — and a clear, honest way to turn it into customers.</p>
+  <header class="hero">
+    <p class="eyebrow">Pricing &amp; Packages</p>
+    <h1 class="headline serif">Three ways to work with Sigma.</h1>
+    <p class="lede">Every business needs a different level of support. Choose how much you want to run yourself and how much you want us to handle, from a guided setup to a fully managed service.</p>
+    <a class="hero-cta" href="#packages">View the packages</a>
   </header>
 
-  <p class="intro">Every business is different, so we don't force you into one package. Below are three ways to work with us — from a one-time expert setup you run yourself, to a fully managed service where we handle everything. Pick the level of support that fits how you want to run your business.</p>
+  <section class="packages" id="packages">
 
-  <section>
-    <h2 class="section-title">Choose Your Level of Support</h2>
-    <div class="tiers">
+    <!-- FOUNDATION -->
+    <div class="pkg">
+      <p class="pkg-kicker"><span class="n">01</span> You do it, we guide</p>
+      <h3 class="pkg-name serif">Foundation</h3>
+      <p class="pkg-for">For owners with the time to implement the work themselves, using our exact plan.</p>
 
-      <!-- FOUNDATION -->
-      <div class="card">
-        <p class="tier-kicker">Tier 1</p>
-        <h3 class="tier-name display">Foundation</h3>
-        <p class="tier-for">You do the work — we give you the exact plan, tools, and templates to do it right.</p>
-        <div class="price-block">
-          <div class="price-line">
-            <span class="price-label">One-time package</span>
-            <span class="price-amount num"><span class="cur">ETB</span>9,500</span>
-          </div>
+      <div class="pkg-prices">
+        <div>
+          <p class="price-label">Setup investment</p>
+          <p class="price-value num">ETB 24,999</p>
         </div>
-        <ul class="includes">
-          <li>Full digital-presence audit (website, Google, social, reviews)</li>
-          <li>Google Business Profile setup checklist &amp; category guidance</li>
-          <li>Website plan and template recommendation</li>
-          <li>Social media account setup checklist</li>
-          <li>Review-request scripts and message templates</li>
-          <li>One 60-minute strategy call</li>
-          <li>30 days of email support after delivery</li>
-        </ul>
-        <div class="you-do"><b>You handle:</b> setting up your accounts, writing your content, and posting — using our step-by-step guidance.</div>
+        <p class="price-note">No ongoing commitment required.</p>
       </div>
 
-      <!-- GUIDED GROWTH -->
-      <div class="card featured">
-        <span class="ribbon">Recommended</span>
-        <p class="tier-kicker">Tier 2</p>
-        <h3 class="tier-name display">Guided Growth</h3>
-        <p class="tier-for">We build the foundation and guide you monthly — you stay hands-on with the day-to-day.</p>
-        <div class="price-block">
-          <div class="price-line">
-            <span class="price-label">Setup, from</span>
-            <span class="price-amount num"><span class="cur">ETB</span>28,000</span>
-          </div>
-          <div class="price-line">
-            <span class="price-label">Then monthly, from</span>
-            <span class="price-amount num"><span class="cur">ETB</span>25,000</span>
-          </div>
-        </div>
-        <ul class="includes">
-          <li><span class="prefix">Everything in Foundation, plus:</span></li>
-          <li>We set up and fully optimize your Google Business Profile</li>
-          <li>We design and build your website structure</li>
-          <li>We set up your social accounts, secured and professional</li>
-          <li>Monthly content calendar and ready-to-post templates</li>
-          <li>Full review-request system, ready for you to run</li>
-          <li>Monthly 30-minute check-in and performance review</li>
-          <li>Up to 2 rounds of revisions</li>
-        </ul>
-        <div class="you-do"><b>You handle:</b> posting on the schedule we build, requesting reviews, and approving our work.</div>
+      <p class="pkg-outcome">A correct, professional foundation across your website, Google listing, and social accounts, built the right way from day one.</p>
+
+      <div class="stat-row">
+        <div class="stat"><span class="k">Client effort</span><span class="v">High</span></div>
+        <div class="stat"><span class="k">Agency involvement</span><span class="v">Advisory</span></div>
       </div>
 
-      <!-- MANAGED GROWTH -->
-      <div class="card">
-        <p class="tier-kicker">Tier 3</p>
-        <h3 class="tier-name display">Managed Growth</h3>
-        <p class="tier-for">We run it end to end — you focus on running your business.</p>
-        <div class="price-block">
-          <div class="price-line">
-            <span class="price-label">Setup, from</span>
-            <span class="price-amount num"><span class="cur">ETB</span>60,000</span>
-          </div>
-          <div class="price-line">
-            <span class="price-label">Then monthly, from</span>
-            <span class="price-amount num"><span class="cur">ETB</span>42,000</span>
-          </div>
-        </div>
-        <ul class="includes">
-          <li><span class="prefix">Everything in Guided Growth, plus:</span></li>
-          <li>Complete website: design, build, copywriting, hosting &amp; upkeep</li>
-          <li>Full Google Business Profile management, posts &amp; monthly optimization</li>
-          <li>Full social media management: photos, video, editing, posting, replies</li>
-          <li>Local search optimization so nearby customers find you first</li>
-          <li>Full review management, including handling real complaints</li>
-          <li>Plain-language monthly report + quarterly strategy review</li>
-          <li>Priority support with one dedicated contact person</li>
-        </ul>
-        <div class="you-do"><b>You handle:</b> giving us access, approving big decisions, and taking care of the customers we send you.</div>
-      </div>
+      <ul class="pkg-features">
+        <li>Full digital-presence audit</li>
+        <li>Google Business Profile setup checklist</li>
+        <li>Website plan &amp; template recommendation</li>
+        <li>Social media account setup checklist</li>
+        <li>Review-request scripts &amp; templates</li>
+        <li>One 60-minute strategy call</li>
+        <li>30 days of email support</li>
+      </ul>
 
+      <a class="pkg-cta" href="#contact">Choose Foundation</a>
     </div>
+
+    <!-- GUIDED GROWTH: FEATURED -->
+    <div class="pkg pkg-featured">
+      <p class="pkg-kicker"><span class="n">02</span> We build it together<span class="recommended-tag">Recommended</span></p>
+      <h3 class="pkg-name serif">Guided Growth</h3>
+      <p class="pkg-for">For businesses that want expert execution on the essentials, while staying hands-on day to day.</p>
+
+      <div class="pkg-prices">
+        <div>
+          <p class="price-label">Setup investment</p>
+          <p class="price-value num">ETB 49,999</p>
+        </div>
+        <div>
+          <p class="price-label">Ongoing management</p>
+          <p class="price-value num">ETB 24,999<span class="unit">per month</span></p>
+        </div>
+      </div>
+
+      <p class="pkg-outcome">Steady, guided growth: we build and optimize the foundation, then meet you every month to keep it moving.</p>
+
+      <div class="stat-row">
+        <div class="stat"><span class="k">Client effort</span><span class="v">Medium</span></div>
+        <div class="stat"><span class="k">Agency involvement</span><span class="v">Shared</span></div>
+      </div>
+
+      <ul class="pkg-features">
+        <li>Full Google Business Profile setup &amp; optimization, by us</li>
+        <li>Website structure &amp; design, built by us</li>
+        <li>Secure, professional social account setup</li>
+        <li>Monthly content calendar &amp; ready-to-post templates</li>
+        <li>Full review-request system, ready to run</li>
+        <li>Monthly check-in &amp; performance review</li>
+        <li>Up to 2 rounds of revisions</li>
+      </ul>
+      <p class="pkg-includes-note">Includes everything in Foundation.</p>
+
+      <a class="pkg-cta" href="#contact">Choose Guided Growth</a>
+    </div>
+
+    <!-- MANAGED GROWTH -->
+    <div class="pkg">
+      <p class="pkg-kicker"><span class="n">03</span> We handle it all</p>
+      <h3 class="pkg-name serif">Managed Growth</h3>
+      <p class="pkg-for">For businesses that want it fully handled, so they can focus on running the business.</p>
+
+      <div class="pkg-prices">
+        <div>
+          <p class="price-label">Setup investment</p>
+          <p class="price-value num">ETB 74,999</p>
+        </div>
+        <div>
+          <p class="price-label">Ongoing management</p>
+          <p class="price-value num">ETB 49,999<span class="unit">per month</span></p>
+        </div>
+      </div>
+
+      <p class="pkg-outcome">Complete, hands-off growth management across your website, listings, social presence, and reputation.</p>
+
+      <div class="stat-row">
+        <div class="stat"><span class="k">Client effort</span><span class="v">Low</span></div>
+        <div class="stat"><span class="k">Agency involvement</span><span class="v">Fully managed</span></div>
+      </div>
+
+      <ul class="pkg-features">
+        <li>Complete website: design, build, copywriting, hosting &amp; upkeep</li>
+        <li>Full Google Business Profile management &amp; monthly optimization</li>
+        <li>Full social media management: photos, video, editing, posting, replies</li>
+        <li>Local search optimization</li>
+        <li>Full review management, including real complaints</li>
+        <li>Plain-language monthly report &amp; quarterly strategy review</li>
+        <li>Priority support with one dedicated contact</li>
+      </ul>
+      <p class="pkg-includes-note">Includes everything in Guided Growth.</p>
+
+      <a class="pkg-cta" href="#contact">Choose Managed Growth</a>
+    </div>
+
   </section>
 
-  <section>
-    <h2 class="section-title">Who Does What, At Each Level</h2>
-    <div class="tablewrap">
-      <table class="resp-table">
+  <section class="explainer">
+    <h2 class="section-h serif">How the levels differ</h2>
+    <p class="section-sub">A quick side-by-side of who does what, and what to expect at each level.</p>
+
+    <div class="compare-wrap">
+      <table class="compare">
         <thead>
           <tr>
-            <th>Task</th>
+            <th></th>
             <th>Foundation</th>
             <th>Guided Growth</th>
             <th>Managed Growth</th>
@@ -448,79 +608,108 @@
         </thead>
         <tbody>
           <tr>
-            <td>Strategy &amp; planning</td>
-            <td><span class="dot low"></span></td>
-            <td><span class="dot mid"></span></td>
-            <td><span class="dot high"></span></td>
+            <td>Best for</td>
+            <td>Owners with time to implement</td>
+            <td>Businesses wanting shared, guided execution</td>
+            <td>Businesses wanting full execution</td>
           </tr>
           <tr>
-            <td>Writing &amp; content creation</td>
-            <td>You</td>
-            <td>Shared</td>
-            <td>Us</td>
+            <td>You handle</td>
+            <td>Setup, content, posting, review requests</td>
+            <td>Posting, review requests, approvals</td>
+            <td>Access, approvals, and your incoming customers</td>
           </tr>
           <tr>
-            <td>Posting &amp; publishing</td>
-            <td>You</td>
-            <td>You</td>
-            <td>Us</td>
+            <td>We handle</td>
+            <td>Strategy, audit, templates, guidance</td>
+            <td>Setup, design, monthly guidance &amp; review</td>
+            <td>Everything: strategy, build, content, publishing, reporting</td>
           </tr>
           <tr>
-            <td>Monitoring results</td>
-            <td>Occasional</td>
-            <td>Monthly</td>
-            <td>Continuous</td>
-          </tr>
-          <tr>
-            <td>Reporting</td>
-            <td>—</td>
-            <td>Standard</td>
-            <td>Detailed</td>
-          </tr>
-          <tr>
-            <td>Your time required</td>
+            <td>Client effort</td>
             <td>High</td>
             <td>Medium</td>
             <td>Low</td>
           </tr>
+          <tr>
+            <td>Reporting</td>
+            <td>None</td>
+            <td>Monthly review</td>
+            <td>Monthly report &amp; quarterly strategy review</td>
+          </tr>
         </tbody>
       </table>
     </div>
+
+    <div class="compare-stack">
+      <div class="stack-row">
+        <p class="row-label">Best for</p>
+        <div class="stack-item"><b>Foundation:</b> Owners with time to implement</div>
+        <div class="stack-item"><b>Guided Growth:</b> Businesses wanting shared, guided execution</div>
+        <div class="stack-item"><b>Managed Growth:</b> Businesses wanting full execution</div>
+      </div>
+      <div class="stack-row">
+        <p class="row-label">You handle</p>
+        <div class="stack-item"><b>Foundation:</b> Setup, content, posting, review requests</div>
+        <div class="stack-item"><b>Guided Growth:</b> Posting, review requests, approvals</div>
+        <div class="stack-item"><b>Managed Growth:</b> Access, approvals, and your incoming customers</div>
+      </div>
+      <div class="stack-row">
+        <p class="row-label">We handle</p>
+        <div class="stack-item"><b>Foundation:</b> Strategy, audit, templates, guidance</div>
+        <div class="stack-item"><b>Guided Growth:</b> Setup, design, monthly guidance &amp; review</div>
+        <div class="stack-item"><b>Managed Growth:</b> Everything: strategy, build, content, publishing, reporting</div>
+      </div>
+      <div class="stack-row">
+        <p class="row-label">Client effort</p>
+        <div class="stack-item"><b>Foundation:</b> High</div>
+        <div class="stack-item"><b>Guided Growth:</b> Medium</div>
+        <div class="stack-item"><b>Managed Growth:</b> Low</div>
+      </div>
+      <div class="stack-row">
+        <p class="row-label">Reporting</p>
+        <div class="stack-item"><b>Foundation:</b> None</div>
+        <div class="stack-item"><b>Guided Growth:</b> Monthly review</div>
+        <div class="stack-item"><b>Managed Growth:</b> Monthly report &amp; quarterly strategy review</div>
+      </div>
+    </div>
+
+    <p class="scope-note">Prices shown are starting points for a typical single-location business. Your final price depends on your number of locations, platforms, and content needs; we confirm exact pricing together after a short, free discovery call. Guided Growth and Managed Growth retainers have a 3-month minimum commitment so we have time to produce real results.</p>
   </section>
 
-  <section>
-    <h2 class="section-title">Add-Ons, Any Tier</h2>
-    <div class="ledger">
-      <div class="ledger-row">
+  <section class="addons">
+    <h2 class="section-h serif">Add-ons, any tier</h2>
+    <div class="addon-list">
+      <div class="addon-row">
         <div>
-          <div class="ledger-name">Paid Advertising Management</div>
-          <div class="ledger-desc">Facebook, Instagram, Google, or TikTok ads. Your ad budget is paid directly to the platform, separate from this fee.</div>
+          <div class="addon-name">Paid Advertising Management</div>
+          <div class="addon-desc">Facebook, Instagram, Google, or TikTok ads. Your ad budget is paid directly to the platform, separate from this fee.</div>
         </div>
-        <div class="ledger-price num">from ETB 8,000/mo</div>
+        <div class="addon-price num">From ETB 8,000/mo</div>
       </div>
-      <div class="ledger-row">
+      <div class="addon-row">
         <div>
-          <div class="ledger-name">Photography &amp; Video Shoot</div>
-          <div class="ledger-desc">Professional photos and video of your business, products, or team for your website and social media.</div>
+          <div class="addon-name">Photography &amp; Video Shoot</div>
+          <div class="addon-desc">Professional photos and video of your business, products, or team for your website and social media.</div>
         </div>
-        <div class="ledger-price num">from ETB 15,000</div>
+        <div class="addon-price num">From ETB 15,000</div>
       </div>
-      <div class="ledger-row">
+      <div class="addon-row">
         <div>
-          <div class="ledger-name">Branding &amp; Logo Design</div>
-          <div class="ledger-desc">Logo, colors, fonts, and a style guide so everything looks consistent everywhere.</div>
+          <div class="addon-name">Branding &amp; Logo Design</div>
+          <div class="addon-desc">Logo, colors, fonts, and a style guide so everything looks consistent everywhere.</div>
         </div>
-        <div class="ledger-price num">from ETB 18,000</div>
+        <div class="addon-price num">From ETB 18,000</div>
       </div>
     </div>
   </section>
 
-  <p class="note">Prices above are starting points for a typical single-location business. Your final price depends on your number of locations, platforms, and content needs — we'll confirm exact pricing together after a short, free discovery call. Guided Growth and Managed Growth retainers have a 3-month minimum commitment so we have time to produce real results.</p>
-
-  <footer>
-    <span class="cta">Book Your Free Discovery Call</span>
-    <p class="contact-line">[Phone / WhatsApp]  ·  [Email]  ·  [Website]</p>
+  <footer class="cta-footer" id="contact">
+    <h2 class="serif">Ready to talk about your business?</h2>
+    <div class="cta-footer-row">
+      <a class="btn-main" href="#contact">Book Your Free Discovery Call</a>
+      <p class="contact-line">[Phone / WhatsApp] &middot; [Email] &middot; [Website]</p>
+    </div>
   </footer>
 
 </div>
-<div class="weave"></div>
