@@ -1,0 +1,235 @@
+<title>Services: Sigma Marketing Agency</title>
+<style>
+  :root{
+    --bg:#F6F3EE; --surface:#FBF9F6; --surface-2:#EFEAE2;
+    --text:#1F1D1A; --muted:#6F6A61; --border:rgba(31,29,26,0.13);
+    --accent:#1F5C4C; --accent-strong:#163F34; --on-accent:#F5F2EA;
+  }
+  :root[data-theme="dark"]{
+    --bg:#15130F; --surface:#1B1815; --surface-2:#211E19;
+    --text:#F1EDE4; --muted:#A29B8C; --border:rgba(241,237,228,0.12);
+    --accent:#7FBBA4; --accent-strong:#9ED2BE; --on-accent:#122019;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15130F; --surface:#1B1815; --surface-2:#211E19;
+      --text:#F1EDE4; --muted:#A29B8C; --border:rgba(241,237,228,0.12);
+      --accent:#7FBBA4; --accent-strong:#9ED2BE; --on-accent:#122019;
+    }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,"Noto Sans Ethiopic",sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .serif{ font-family:ui-serif,"New York","Iowan Old Style",Georgia,"Times New Roman",serif; }
+  a{ color:inherit; } h1,h2,h3,p{ margin:0; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  .page{ max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,56px) clamp(72px,9vw,100px); }
+
+  .topbar{ position:sticky; top:0; z-index:20; background:var(--bg); border-bottom:1px solid var(--border); }
+  .topbar-inner{ max-width:1180px; margin:0 auto; padding:14px clamp(20px,5vw,56px); display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .topbar-name{ font-size:18px; font-style:italic; font-weight:600; letter-spacing:-0.01em; text-decoration:none; }
+  .site-nav{ display:flex; gap:24px; }
+  .site-nav a{ font-size:13.5px; font-weight:600; text-decoration:none; color:var(--muted); transition:color .15s ease; }
+  .site-nav a:hover, .site-nav a.active{ color:var(--text); }
+  @media (max-width:860px){ .site-nav{ display:none; } }
+  .topbar-actions{ display:flex; align-items:center; gap:8px; }
+  .tb-link{ font-size:13px; font-weight:600; text-decoration:none; padding:9px 14px; border-radius:3px; border:1px solid var(--border); color:var(--text); transition:background-color .15s ease; white-space:nowrap; }
+  .tb-link:hover{ background:var(--surface-2); }
+  .tb-link.tb-cta{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+  .tb-link.tb-cta:hover{ background:var(--accent-strong); }
+  @media (max-width:600px){ .tb-link:not(.tb-cta){ display:none; } }
+
+  .sticky-contact{ display:none; position:fixed; left:0; right:0; bottom:0; z-index:30; background:var(--surface); border-top:1px solid var(--border); padding:10px clamp(14px,4vw,24px); padding-bottom:max(10px, env(safe-area-inset-bottom)); gap:10px; }
+  @media (max-width:700px){ .sticky-contact{ display:flex; } body{ padding-bottom:64px; } }
+  .sticky-btn{ flex:1; text-align:center; padding:12px 10px; border-radius:3px; font-size:14px; font-weight:700; text-decoration:none; }
+  .sticky-whatsapp{ background:var(--accent); color:var(--on-accent); }
+  .sticky-call{ background:transparent; color:var(--text); border:1px solid var(--text); }
+
+  .hero{ max-width:640px; padding:clamp(56px,8vw,80px) 0 clamp(40px,6vw,56px); }
+  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; }
+  h1.headline{ font-size:clamp(2rem,4.2vw,2.9rem); font-weight:500; line-height:1.14; letter-spacing:-0.015em; text-wrap:balance; }
+  .lede{ margin-top:20px; font-size:16.5px; color:var(--muted); max-width:56ch; }
+
+  .svc-list{ display:flex; flex-direction:column; }
+  .svc-item{ padding:40px 0; border-top:1px solid var(--border); display:grid; grid-template-columns:1fr 1.3fr; gap:34px; scroll-margin-top:90px; }
+  @media (max-width:760px){ .svc-item{ grid-template-columns:1fr; gap:16px; } }
+  .svc-item h2{ font-size:1.4rem; font-weight:500; }
+  .svc-for{ margin-top:10px; font-size:14.5px; color:var(--muted); }
+  .svc-tiers{ margin-top:16px; display:flex; gap:8px; flex-wrap:wrap; }
+  .svc-tier-chip{ font-size:11.5px; font-weight:600; padding:5px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted); }
+  .svc-includes{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .svc-includes li{ font-size:14.5px; display:flex; gap:9px; }
+  .svc-includes li::before{ content:"\2713"; color:var(--accent); font-size:12px; margin-top:4px; flex:0 0 auto; }
+  .svc-cta{ margin-top:16px; display:inline-block; font-size:13px; font-weight:700; color:var(--accent); text-decoration:none; }
+  .svc-cta:hover{ text-decoration:underline; }
+
+  .final-cta{ padding-top:clamp(56px,8vw,84px); }
+  .final-cta h2{ font-size:clamp(1.6rem,3.2vw,2.1rem); font-weight:500; letter-spacing:-0.01em; max-width:24ch; text-wrap:balance; }
+  .hero-ctas{ margin-top:26px; display:flex; flex-wrap:wrap; gap:14px; }
+  .btn-outline{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; padding:13px 22px; border:1px solid var(--text); border-radius:3px; text-decoration:none; transition:background-color .15s ease,color .15s ease; }
+  .btn-outline:hover{ background:var(--text); color:var(--bg); }
+  .btn-solid{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; padding:13px 22px; border-radius:3px; text-decoration:none; background:var(--accent); color:var(--on-accent); transition:background-color .15s ease; }
+  .btn-solid:hover{ background:var(--accent-strong); }
+
+  .site-footer{ margin-top:64px; padding:40px 0 0; border-top:1px solid var(--border); font-size:12.5px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  .site-footer a{ text-decoration:underline; }
+</style>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-name serif" href="index.html">Sigma</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="services.html">Services</a>
+      <a href="CLIENT_PRICING_MENU.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="tb-link" href="https://wa.me/251XXXXXXXXX?text=Hi%20Sigma%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="tb-link tb-cta" href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="sticky-contact">
+  <a class="sticky-btn sticky-whatsapp" href="https://wa.me/251XXXXXXXXX?text=Hi%20Sigma%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp Us</a>
+  <a class="sticky-btn sticky-call" href="tel:+251XXXXXXXXX">Call Us</a>
+</div>
+
+<div class="page">
+
+  <section class="hero">
+    <p class="eyebrow">Services</p>
+    <h1 class="headline serif">Six services, combined into the right package for you.</h1>
+    <p class="lede">Every service below can be delivered on its own or bundled into a package. See <a href="CLIENT_PRICING_MENU.html" style="color:var(--accent); font-weight:600;">Pricing &amp; Packages</a> for how they combine at each level.</p>
+  </section>
+
+  <div class="svc-list">
+
+    <article class="svc-item" id="website">
+      <div>
+        <h2 class="serif">Website Design &amp; Development</h2>
+        <p class="svc-for">A fast, mobile-friendly website built to turn visitors into calls and messages, not just a digital brochure.</p>
+        <div class="svc-tiers">
+          <span class="svc-tier-chip">Foundation: plan &amp; template</span>
+          <span class="svc-tier-chip">Guided Growth: built by us</span>
+          <span class="svc-tier-chip">Managed Growth: full build &amp; upkeep</span>
+        </div>
+      </div>
+      <ul class="svc-includes">
+        <li>Strategy: who the site is for and what it needs to do</li>
+        <li>Mobile-first design and structure</li>
+        <li>Copywriting that explains your offer clearly</li>
+        <li>Hosting, security, and ongoing maintenance</li>
+        <li>Analytics so you can see what's working</li>
+      </ul>
+    </article>
+
+    <article class="svc-item" id="gbp">
+      <div>
+        <h2 class="serif">Google Business Profile</h2>
+        <p class="svc-for">The free listing that puts you on Google Maps and in local search results, done right and kept current.</p>
+        <div class="svc-tiers">
+          <span class="svc-tier-chip">Foundation: setup checklist</span>
+          <span class="svc-tier-chip">Guided Growth: set up by us</span>
+          <span class="svc-tier-chip">Managed Growth: fully managed</span>
+        </div>
+      </div>
+      <ul class="svc-includes">
+        <li>Verification and complete profile setup</li>
+        <li>Correct categories, hours, and business information</li>
+        <li>Photos and regular posts</li>
+        <li>Monitoring for duplicate listings and errors</li>
+        <li>Monthly performance review: calls, clicks, direction requests</li>
+      </ul>
+    </article>
+
+    <article class="svc-item" id="seo">
+      <div>
+        <h2 class="serif">Local SEO</h2>
+        <p class="svc-for">Consistent, accurate business information across the web, so nearby customers find you before your competitors.</p>
+        <div class="svc-tiers">
+          <span class="svc-tier-chip">Foundation: citation checklist</span>
+          <span class="svc-tier-chip">Guided Growth: core citations built</span>
+          <span class="svc-tier-chip">Managed Growth: fully managed</span>
+        </div>
+      </div>
+      <ul class="svc-includes">
+        <li>Business name, address, and phone number audit</li>
+        <li>Consistency across directories and listings</li>
+        <li>Location-specific website content, where relevant</li>
+        <li>Ongoing ranking and visibility monitoring</li>
+      </ul>
+    </article>
+
+    <article class="svc-item" id="social">
+      <div>
+        <h2 class="serif">Social Media Management</h2>
+        <p class="svc-for">Content, posting, and community management across the platforms your actual customers use.</p>
+        <div class="svc-tiers">
+          <span class="svc-tier-chip">Foundation: templates &amp; checklist</span>
+          <span class="svc-tier-chip">Guided Growth: calendar &amp; templates</span>
+          <span class="svc-tier-chip">Managed Growth: fully produced &amp; managed</span>
+        </div>
+      </div>
+      <ul class="svc-includes">
+        <li>Account setup, secured and professional</li>
+        <li>A content plan built around your business</li>
+        <li>Photography, video, and post design</li>
+        <li>Scheduling, publishing, and replying to messages</li>
+        <li>Monthly performance review</li>
+      </ul>
+    </article>
+
+    <article class="svc-item" id="reviews">
+      <div>
+        <h2 class="serif">Review Management</h2>
+        <p class="svc-for">A steady, honest system for earning genuine customer reviews and responding to every one of them.</p>
+        <div class="svc-tiers">
+          <span class="svc-tier-chip">Foundation: scripts &amp; templates</span>
+          <span class="svc-tier-chip">Guided Growth: system set up for you</span>
+          <span class="svc-tier-chip">Managed Growth: fully managed</span>
+        </div>
+      </div>
+      <ul class="svc-includes">
+        <li>A review request process every customer sees the same way</li>
+        <li>QR codes, links, and message templates</li>
+        <li>Response to every review, good or bad</li>
+        <li>Escalation process for real complaints</li>
+      </ul>
+      <p class="svc-for" style="grid-column:1 / -1; margin-top:-10px;">We never buy reviews, write fake reviews, or hide unhappy customers from the process. It is not something we offer at any tier.</p>
+    </article>
+
+    <article class="svc-item" id="ads">
+      <div>
+        <h2 class="serif">Paid Advertising</h2>
+        <p class="svc-for">Facebook, Instagram, Google, and TikTok campaigns, managed and measured, with your ad budget always kept separate from our fee.</p>
+        <div class="svc-tiers">
+          <span class="svc-tier-chip">Available as an add-on to any tier</span>
+        </div>
+      </div>
+      <ul class="svc-includes">
+        <li>Campaign strategy and audience targeting</li>
+        <li>Ad creative and copy</li>
+        <li>Budget management and testing</li>
+        <li>Conversion tracking and monthly reporting</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <section class="final-cta">
+    <h2 class="serif">Not sure which services you need?</h2>
+    <div class="hero-ctas">
+      <a class="btn-solid" href="contact.html">Ask us a question</a>
+      <a class="btn-outline" href="CLIENT_PRICING_MENU.html">See our packages</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>Sigma Marketing Agency</span>
+    <span><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="contact.html">Contact</a></span>
+  </footer>
+
+</div>

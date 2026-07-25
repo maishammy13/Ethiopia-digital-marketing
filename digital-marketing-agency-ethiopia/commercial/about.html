@@ -1,0 +1,155 @@
+<title>About: Sigma Marketing Agency</title>
+<style>
+  :root{
+    --bg:#F6F3EE; --surface:#FBF9F6; --surface-2:#EFEAE2;
+    --text:#1F1D1A; --muted:#6F6A61; --border:rgba(31,29,26,0.13);
+    --accent:#1F5C4C; --accent-strong:#163F34; --on-accent:#F5F2EA;
+  }
+  :root[data-theme="dark"]{
+    --bg:#15130F; --surface:#1B1815; --surface-2:#211E19;
+    --text:#F1EDE4; --muted:#A29B8C; --border:rgba(241,237,228,0.12);
+    --accent:#7FBBA4; --accent-strong:#9ED2BE; --on-accent:#122019;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15130F; --surface:#1B1815; --surface-2:#211E19;
+      --text:#F1EDE4; --muted:#A29B8C; --border:rgba(241,237,228,0.12);
+      --accent:#7FBBA4; --accent-strong:#9ED2BE; --on-accent:#122019;
+    }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,"Noto Sans Ethiopic",sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .serif{ font-family:ui-serif,"New York","Iowan Old Style",Georgia,"Times New Roman",serif; }
+  a{ color:inherit; } h1,h2,h3,p{ margin:0; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  .page{ max-width:960px; margin:0 auto; padding:0 clamp(20px,5vw,56px) clamp(72px,9vw,100px); }
+
+  .topbar{ position:sticky; top:0; z-index:20; background:var(--bg); border-bottom:1px solid var(--border); }
+  .topbar-inner{ max-width:1180px; margin:0 auto; padding:14px clamp(20px,5vw,56px); display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .topbar-name{ font-size:18px; font-style:italic; font-weight:600; letter-spacing:-0.01em; text-decoration:none; }
+  .site-nav{ display:flex; gap:24px; }
+  .site-nav a{ font-size:13.5px; font-weight:600; text-decoration:none; color:var(--muted); transition:color .15s ease; }
+  .site-nav a:hover, .site-nav a.active{ color:var(--text); }
+  @media (max-width:860px){ .site-nav{ display:none; } }
+  .topbar-actions{ display:flex; align-items:center; gap:8px; }
+  .tb-link{ font-size:13px; font-weight:600; text-decoration:none; padding:9px 14px; border-radius:3px; border:1px solid var(--border); color:var(--text); transition:background-color .15s ease; white-space:nowrap; }
+  .tb-link:hover{ background:var(--surface-2); }
+  .tb-link.tb-cta{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+  .tb-link.tb-cta:hover{ background:var(--accent-strong); }
+  @media (max-width:600px){ .tb-link:not(.tb-cta){ display:none; } }
+
+  .sticky-contact{ display:none; position:fixed; left:0; right:0; bottom:0; z-index:30; background:var(--surface); border-top:1px solid var(--border); padding:10px clamp(14px,4vw,24px); padding-bottom:max(10px, env(safe-area-inset-bottom)); gap:10px; }
+  @media (max-width:700px){ .sticky-contact{ display:flex; } body{ padding-bottom:64px; } }
+  .sticky-btn{ flex:1; text-align:center; padding:12px 10px; border-radius:3px; font-size:14px; font-weight:700; text-decoration:none; }
+  .sticky-whatsapp{ background:var(--accent); color:var(--on-accent); }
+  .sticky-call{ background:transparent; color:var(--text); border:1px solid var(--text); }
+
+  .hero{ max-width:640px; padding:clamp(56px,8vw,80px) 0 clamp(40px,6vw,56px); }
+  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; }
+  h1.headline{ font-size:clamp(2rem,4.2vw,2.9rem); font-weight:500; line-height:1.14; letter-spacing:-0.015em; text-wrap:balance; }
+  .lede{ margin-top:20px; font-size:17px; color:var(--muted); max-width:56ch; }
+
+  .prose{ max-width:66ch; padding:36px 0; border-top:1px solid var(--border); }
+  .prose h2{ font-size:1.35rem; font-weight:500; margin-bottom:14px; }
+  .prose p{ font-size:15.5px; color:var(--text); margin-bottom:14px; line-height:1.7; }
+  .prose p:last-child{ margin-bottom:0; }
+
+  .values{ padding:36px 0; border-top:1px solid var(--border); }
+  .values h2{ font-size:1.35rem; font-weight:500; margin-bottom:22px; }
+  .value-list{ display:flex; flex-direction:column; gap:20px; }
+  .value-item{ display:grid; grid-template-columns:200px 1fr; gap:20px; }
+  @media (max-width:640px){ .value-item{ grid-template-columns:1fr; gap:6px; } }
+  .value-item .v-name{ font-weight:600; font-size:15px; }
+  .value-item .v-desc{ font-size:14.5px; color:var(--muted); line-height:1.6; }
+
+  .final-cta{ padding-top:clamp(56px,8vw,84px); border-top:1px solid var(--border); }
+  .final-cta h2{ font-size:clamp(1.6rem,3.2vw,2.1rem); font-weight:500; letter-spacing:-0.01em; max-width:24ch; text-wrap:balance; }
+  .hero-ctas{ margin-top:26px; display:flex; flex-wrap:wrap; gap:14px; }
+  .btn-outline{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; padding:13px 22px; border:1px solid var(--text); border-radius:3px; text-decoration:none; transition:background-color .15s ease,color .15s ease; }
+  .btn-outline:hover{ background:var(--text); color:var(--bg); }
+  .btn-solid{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; padding:13px 22px; border-radius:3px; text-decoration:none; background:var(--accent); color:var(--on-accent); transition:background-color .15s ease; }
+  .btn-solid:hover{ background:var(--accent-strong); }
+
+  .site-footer{ margin-top:64px; padding:40px 0 0; border-top:1px solid var(--border); font-size:12.5px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  .site-footer a{ text-decoration:underline; }
+</style>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-name serif" href="index.html">Sigma</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="CLIENT_PRICING_MENU.html">Pricing</a>
+      <a class="active" href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="tb-link" href="https://wa.me/251XXXXXXXXX?text=Hi%20Sigma%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="tb-link tb-cta" href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="sticky-contact">
+  <a class="sticky-btn sticky-whatsapp" href="https://wa.me/251XXXXXXXXX?text=Hi%20Sigma%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp Us</a>
+  <a class="sticky-btn sticky-call" href="tel:+251XXXXXXXXX">Call Us</a>
+</div>
+
+<div class="page">
+
+  <section class="hero">
+    <p class="eyebrow">About Sigma</p>
+    <h1 class="headline serif">A digital marketing agency built around one idea: the smallest solution that actually works.</h1>
+    <p class="lede">We would rather set up your Google listing properly than sell you a website you don't need yet.</p>
+  </section>
+
+  <div class="prose">
+    <h2 class="serif">Why we focus on Ethiopian small and medium businesses</h2>
+    <p>Most digital marketing advice is written for large companies with big budgets and full-time marketing teams. Ethiopian small and medium businesses need something different: a right-sized plan, delivered honestly, at a price that makes sense for a business their size.</p>
+    <p>We work with restaurants, clinics, hotels, salons, retailers, and schools across Ethiopia. Businesses run by owners who are busy running the business, not managing a marketing department.</p>
+  </div>
+
+  <div class="prose">
+    <h2 class="serif">How we work</h2>
+    <p>We recommend the smallest package that produces a real, measurable result, then grow from there as it proves itself. We never guarantee outcomes we don't control, like a specific ranking, follower count, or revenue figure. We do guarantee the deliverables we're responsible for: a working website, a verified Google listing, a report that tells you the truth about what happened that month.</p>
+    <p>You own your own website, your own Google Business Profile, and your own social media accounts. We work inside them with the access you grant us, not the other way around.</p>
+  </div>
+
+  <div class="values">
+    <h2 class="serif">What we won't do</h2>
+    <div class="value-list">
+      <div class="value-item">
+        <p class="v-name">No fake reviews</p>
+        <p class="v-desc">We never buy, write, or gate reviews. Every customer is asked the same way, whether the last interaction went well or not.</p>
+      </div>
+      <div class="value-item">
+        <p class="v-name">No guaranteed rankings or revenue</p>
+        <p class="v-desc">Anyone who promises a specific search ranking or revenue number is promising something outside their control. We won't do that.</p>
+      </div>
+      <div class="value-item">
+        <p class="v-name">No locked-in accounts</p>
+        <p class="v-desc">Your domain, hosting, Google listing, and social accounts stay in your name and under your control, always.</p>
+      </div>
+      <div class="value-item">
+        <p class="v-name">No invented results</p>
+        <p class="v-desc">If we don't have real proof yet, we say so. That's why our case studies page is still empty. We would rather be honest than convincing.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="final-cta">
+    <h2 class="serif">Want to know if we're a fit?</h2>
+    <div class="hero-ctas">
+      <a class="btn-solid" href="contact.html">Ask us a question</a>
+      <a class="btn-outline" href="CLIENT_PRICING_MENU.html">See our packages</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>Sigma Marketing Agency</span>
+    <span><a href="index.html">Home</a> &middot; <a href="services.html">Services</a> &middot; <a href="contact.html">Contact</a></span>
+  </footer>
+
+</div>
