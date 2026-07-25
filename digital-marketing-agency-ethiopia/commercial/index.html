@@ -1,0 +1,315 @@
+<title>Sigma Marketing Agency: Digital Marketing for Ethiopian Businesses</title>
+<style>
+  :root{
+    --bg:#F6F3EE; --surface:#FBF9F6; --surface-2:#EFEAE2;
+    --text:#1F1D1A; --muted:#6F6A61; --border:rgba(31,29,26,0.13);
+    --accent:#1F5C4C; --accent-strong:#163F34; --on-accent:#F5F2EA;
+    --feat-bg:#1B2420; --feat-bg-2:#212B26; --feat-text:#F3F0E6;
+    --feat-muted:#AFA99C; --feat-border:rgba(255,255,255,0.14); --feat-accent:#8FBFAE;
+    --shadow: 0 14px 32px -18px rgba(20,18,15,0.28);
+  }
+  :root[data-theme="dark"]{
+    --bg:#15130F; --surface:#1B1815; --surface-2:#211E19;
+    --text:#F1EDE4; --muted:#A29B8C; --border:rgba(241,237,228,0.12);
+    --accent:#7FBBA4; --accent-strong:#9ED2BE; --on-accent:#122019;
+    --feat-bg:#0F1613; --feat-bg-2:#131C18; --feat-text:#F1EDE4;
+    --feat-muted:#93A69D; --feat-border:rgba(241,237,228,0.14); --feat-accent:#9ED2BE;
+    --shadow: 0 14px 32px -18px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15130F; --surface:#1B1815; --surface-2:#211E19;
+      --text:#F1EDE4; --muted:#A29B8C; --border:rgba(241,237,228,0.12);
+      --accent:#7FBBA4; --accent-strong:#9ED2BE; --on-accent:#122019;
+      --feat-bg:#0F1613; --feat-bg-2:#131C18; --feat-text:#F1EDE4;
+      --feat-muted:#93A69D; --feat-border:rgba(241,237,228,0.14); --feat-accent:#9ED2BE;
+      --shadow: 0 14px 32px -18px rgba(0,0,0,0.6);
+    }
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family: -apple-system,"Segoe UI","Helvetica Neue",Arial,"Noto Sans Ethiopic",sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .serif{ font-family: ui-serif,"New York","Iowan Old Style",Georgia,"Times New Roman",serif; }
+  .num{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; }
+  a{ color:inherit; }
+  h1,h2,h3,p{ margin:0; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  .page{ max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,56px); }
+
+  /* Top bar / nav */
+  .topbar{ position:sticky; top:0; z-index:20; background:var(--bg); border-bottom:1px solid var(--border); }
+  .topbar-inner{ max-width:1180px; margin:0 auto; padding:14px clamp(20px,5vw,56px); display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .topbar-name{ font-size:18px; font-style:italic; font-weight:600; letter-spacing:-0.01em; text-decoration:none; }
+  .site-nav{ display:flex; gap:24px; }
+  .site-nav a{ font-size:13.5px; font-weight:600; text-decoration:none; color:var(--muted); transition:color .15s ease; }
+  .site-nav a:hover, .site-nav a.active{ color:var(--text); }
+  @media (max-width:860px){ .site-nav{ display:none; } }
+  .topbar-actions{ display:flex; align-items:center; gap:8px; }
+  .tb-link{ font-size:13px; font-weight:600; text-decoration:none; padding:9px 14px; border-radius:3px; border:1px solid var(--border); color:var(--text); transition:background-color .15s ease,border-color .15s ease; white-space:nowrap; }
+  .tb-link:hover{ background:var(--surface-2); }
+  .tb-link.tb-cta{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+  .tb-link.tb-cta:hover{ background:var(--accent-strong); }
+  @media (max-width:600px){ .tb-link:not(.tb-cta){ display:none; } }
+
+  .sticky-contact{ display:none; position:fixed; left:0; right:0; bottom:0; z-index:30; background:var(--surface); border-top:1px solid var(--border); padding:10px clamp(14px,4vw,24px); padding-bottom:max(10px, env(safe-area-inset-bottom)); gap:10px; }
+  @media (max-width:700px){ .sticky-contact{ display:flex; } body{ padding-bottom:64px; } }
+  .sticky-btn{ flex:1; text-align:center; padding:12px 10px; border-radius:3px; font-size:14px; font-weight:700; text-decoration:none; }
+  .sticky-whatsapp{ background:var(--accent); color:var(--on-accent); }
+  .sticky-call{ background:transparent; color:var(--text); border:1px solid var(--text); }
+
+  section{ padding:clamp(48px,7vw,72px) 0; border-bottom:1px solid var(--border); }
+  section:last-of-type{ border-bottom:none; }
+  h2.section-h{ font-size:1.6rem; font-weight:500; letter-spacing:-0.01em; }
+  .section-sub{ margin-top:10px; font-size:15px; color:var(--muted); max-width:56ch; }
+  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; }
+
+  /* Hero */
+  .hero{ max-width:660px; padding-top:clamp(56px,8vw,88px); padding-bottom:clamp(48px,7vw,64px); border-bottom:none; }
+  h1.headline{ font-size:clamp(2.1rem,4.6vw,3.3rem); font-weight:500; line-height:1.12; letter-spacing:-0.015em; text-wrap:balance; }
+  .lede{ margin-top:22px; font-size:17px; color:var(--muted); max-width:52ch; }
+  .hero-ctas{ margin-top:32px; display:flex; flex-wrap:wrap; gap:14px; }
+  .btn-outline{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; padding:13px 22px; border:1px solid var(--text); border-radius:3px; text-decoration:none; transition:background-color .15s ease,color .15s ease; }
+  .btn-outline:hover{ background:var(--text); color:var(--bg); }
+  .btn-solid{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; padding:13px 22px; border-radius:3px; text-decoration:none; background:var(--accent); color:var(--on-accent); transition:background-color .15s ease; }
+  .btn-solid:hover{ background:var(--accent-strong); }
+
+  /* Who we help */
+  .who-list{ margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
+  .who-chip{ font-size:13.5px; font-weight:600; padding:9px 16px; border-radius:999px; border:1px solid var(--border); background:var(--surface); }
+
+  /* Services overview cards */
+  .svc-grid{ margin-top:32px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:860px){ .svc-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .svc-grid{ grid-template-columns:1fr; } }
+  .svc-card{ border:1px solid var(--border); border-radius:6px; padding:24px 22px; background:var(--surface); display:flex; flex-direction:column; }
+  .svc-card h3{ font-size:16.5px; font-weight:600; }
+  .svc-card p{ margin-top:8px; font-size:13.5px; color:var(--muted); flex:1; }
+  .svc-card a{ margin-top:14px; font-size:13px; font-weight:700; color:var(--accent); text-decoration:none; }
+  .svc-card a:hover{ text-decoration:underline; }
+
+  /* Process */
+  .how-steps{ margin-top:34px; display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  @media (max-width:920px){ .how-steps{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .how-steps{ grid-template-columns:1fr; } }
+  .how-step .step-n{ font-size:12px; font-weight:700; color:var(--accent); letter-spacing:0.06em; }
+  .how-step .step-name{ margin-top:8px; font-size:16px; font-weight:600; }
+  .how-step .step-desc{ margin-top:6px; font-size:13.5px; color:var(--muted); line-height:1.5; }
+
+  /* Pricing preview */
+  .price-preview{ margin-top:32px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:860px){ .price-preview{ grid-template-columns:1fr; max-width:420px; } }
+  .pp-card{ border:1px solid var(--border); border-radius:6px; padding:26px 22px; background:var(--surface); }
+  .pp-card.pp-featured{ background:linear-gradient(180deg,var(--feat-bg-2),var(--feat-bg)); border-color:var(--feat-border); color:var(--feat-text); }
+  .pp-tag{ font-size:11px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); }
+  .pp-featured .pp-tag{ color:var(--feat-muted); }
+  .pp-name{ margin-top:8px; font-size:1.25rem; font-style:italic; }
+  .pp-price{ margin-top:14px; font-size:1.4rem; font-weight:700; }
+  .pp-price .unit{ font-size:12px; font-weight:600; color:var(--muted); margin-left:3px; }
+  .pp-featured .pp-price .unit{ color:var(--feat-muted); }
+  .pp-link{ margin-top:16px; display:inline-block; font-size:13px; font-weight:700; color:var(--accent); text-decoration:none; }
+  .pp-featured .pp-link{ color:var(--feat-accent); }
+
+  /* Case studies placeholder */
+  .case-grid{ margin-top:30px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:860px){ .case-grid{ grid-template-columns:1fr; } }
+  .case-card{ border:1px dashed var(--border); border-radius:6px; padding:28px 24px; min-height:170px; display:flex; flex-direction:column; justify-content:space-between; }
+  .case-card .case-n{ font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+  .case-card .case-label{ margin-top:10px; font-size:16px; font-weight:600; color:var(--muted); }
+  .case-card .case-note{ margin-top:16px; font-size:13px; color:var(--muted); font-style:italic; }
+
+  /* Footer */
+  .site-footer{ padding:48px 0 40px; }
+  .site-footer-grid{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px; }
+  .footer-col h4{ font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:14px; }
+  .footer-col a{ display:block; font-size:14px; color:var(--text); text-decoration:none; padding:4px 0; }
+  .footer-col a:hover{ color:var(--accent); }
+  .footer-bottom{ margin-top:36px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+</style>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-name serif" href="index.html">Sigma</a>
+    <nav class="site-nav">
+      <a class="active" href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="CLIENT_PRICING_MENU.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="tb-link" href="https://wa.me/251XXXXXXXXX?text=Hi%20Sigma%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="tb-link tb-cta" href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="sticky-contact">
+  <a class="sticky-btn sticky-whatsapp" href="https://wa.me/251XXXXXXXXX?text=Hi%20Sigma%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp Us</a>
+  <a class="sticky-btn sticky-call" href="tel:+251XXXXXXXXX">Call Us</a>
+</div>
+
+<div class="page">
+
+  <section class="hero" style="border-bottom:none;">
+    <p class="eyebrow">Digital Marketing for Ethiopian Businesses</p>
+    <h1 class="headline serif">Be easy to find, easy to trust, and easy to contact.</h1>
+    <p class="lede">Sigma builds and manages the website, Google listing, and social presence that turn nearby customers into calls, messages, and bookings, at a level of support that matches how you want to run your business.</p>
+    <div class="hero-ctas">
+      <a class="btn-solid" href="CLIENT_PRICING_MENU.html">See our packages</a>
+      <a class="btn-outline" href="contact.html">Ask us a question</a>
+    </div>
+  </section>
+
+  <section class="who">
+    <h2 class="section-h serif">Who we help</h2>
+    <p class="section-sub">We work with owner-managed businesses across Ethiopia who want to be easy to find, easy to trust, and easy to contact.</p>
+    <div class="who-list">
+      <span class="who-chip">Restaurants &amp; cafés</span>
+      <span class="who-chip">Hotels &amp; guesthouses</span>
+      <span class="who-chip">Clinics &amp; healthcare providers</span>
+      <span class="who-chip">Salons &amp; barbershops</span>
+      <span class="who-chip">Retail &amp; shops</span>
+      <span class="who-chip">Schools &amp; training centers</span>
+      <span class="who-chip">And more</span>
+    </div>
+  </section>
+
+  <section class="services-overview">
+    <h2 class="section-h serif">What we do</h2>
+    <p class="section-sub">Six core services, combined into the package that fits your business.</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <h3>Website Design &amp; Development</h3>
+        <p>A fast, mobile-friendly website built to turn visitors into calls and messages.</p>
+        <a href="services.html#website">Learn more &raquo;</a>
+      </div>
+      <div class="svc-card">
+        <h3>Google Business Profile</h3>
+        <p>The free listing that puts you on Google Maps and local search results.</p>
+        <a href="services.html#gbp">Learn more &raquo;</a>
+      </div>
+      <div class="svc-card">
+        <h3>Local SEO</h3>
+        <p>Consistent, accurate information across the web so nearby customers find you first.</p>
+        <a href="services.html#seo">Learn more &raquo;</a>
+      </div>
+      <div class="svc-card">
+        <h3>Social Media Management</h3>
+        <p>Content, posting, and community management across the platforms your customers use.</p>
+        <a href="services.html#social">Learn more &raquo;</a>
+      </div>
+      <div class="svc-card">
+        <h3>Review Management</h3>
+        <p>A steady, honest system for earning and responding to customer reviews.</p>
+        <a href="services.html#reviews">Learn more &raquo;</a>
+      </div>
+      <div class="svc-card">
+        <h3>Paid Advertising</h3>
+        <p>Facebook, Instagram, Google, and TikTok campaigns, managed and measured.</p>
+        <a href="services.html#ads">Learn more &raquo;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <h2 class="section-h serif">How we work</h2>
+    <p class="section-sub">The same process behind every package, scaled to how much of it you want us to run.</p>
+    <div class="how-steps">
+      <div class="how-step"><p class="step-n num">01</p><p class="step-name">Audit</p><p class="step-desc">We review your current website, Google listing, and social presence, and identify the real gaps.</p></div>
+      <div class="how-step"><p class="step-n num">02</p><p class="step-name">Plan</p><p class="step-desc">We agree the specific outcomes we're working toward and how we'll measure them.</p></div>
+      <div class="how-step"><p class="step-n num">03</p><p class="step-name">Build</p><p class="step-desc">We set up or rebuild what's needed: website, listings, accounts, content, and tracking.</p></div>
+      <div class="how-step"><p class="step-n num">04</p><p class="step-name">Launch</p><p class="step-desc">Everything goes live, tested and checked, with you signing off before anything goes public.</p></div>
+      <div class="how-step"><p class="step-n num">05</p><p class="step-name">Support</p><p class="step-desc">Ongoing management, monitoring, and honest monthly reporting on what's actually working.</p></div>
+    </div>
+  </section>
+
+  <section class="pricing-preview">
+    <h2 class="section-h serif">Three ways to work with us</h2>
+    <p class="section-sub">From a one-time expert setup you run yourself, to a fully managed service.</p>
+    <div class="price-preview">
+      <div class="pp-card">
+        <p class="pp-tag">01 &middot; Foundation</p>
+        <p class="pp-name serif">Foundation</p>
+        <p class="pp-price num">ETB 24,999</p>
+        <a class="pp-link" href="CLIENT_PRICING_MENU.html">See what's included &raquo;</a>
+      </div>
+      <div class="pp-card pp-featured">
+        <p class="pp-tag">02 &middot; Recommended</p>
+        <p class="pp-name serif">Guided Growth</p>
+        <p class="pp-price num">ETB 24,999<span class="unit">per month</span></p>
+        <a class="pp-link" href="CLIENT_PRICING_MENU.html">See what's included &raquo;</a>
+      </div>
+      <div class="pp-card">
+        <p class="pp-tag">03 &middot; Managed Growth</p>
+        <p class="pp-name serif">Managed Growth</p>
+        <p class="pp-price num">ETB 49,999<span class="unit">per month</span></p>
+        <a class="pp-link" href="CLIENT_PRICING_MENU.html">See what's included &raquo;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cases">
+    <h2 class="section-h serif">Results</h2>
+    <p class="section-sub">Sigma is a new agency. We would rather show you real results from real clients than invent them. This space fills in as we deliver.</p>
+    <div class="case-grid">
+      <div class="case-card">
+        <p class="case-n">Case study 01</p>
+        <p class="case-label">Reserved for our first client</p>
+        <p class="case-note">Check back soon.</p>
+      </div>
+      <div class="case-card">
+        <p class="case-n">Case study 02</p>
+        <p class="case-label">Reserved for our first client</p>
+        <p class="case-note">Check back soon.</p>
+      </div>
+      <div class="case-card">
+        <p class="case-n">Case study 03</p>
+        <p class="case-label">Reserved for our first client</p>
+        <p class="case-note">Check back soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" style="border-bottom:none;">
+    <h2 class="section-h serif">Ready to talk about your business?</h2>
+    <p class="section-sub">Tell us what you're working with and what you want to change. No pressure, no obligation.</p>
+    <div class="hero-ctas">
+      <a class="btn-solid" href="contact.html">Ask us a question</a>
+      <a class="btn-outline" href="https://wa.me/251XXXXXXXXX?text=Hi%20Sigma%2C%20I%27d%20like%20to%20book%20a%20discovery%20call." target="_blank" rel="noopener">Message us on WhatsApp</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer-grid">
+      <div class="footer-col">
+        <h4>Sigma</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="CLIENT_PRICING_MENU.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="https://wa.me/251XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+251XXXXXXXXX">Call us</a>
+        <a href="mailto:hello@example.com">Email us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Sigma Marketing Agency</span>
+      <span>Addis Ababa, Ethiopia</span>
+    </div>
+  </footer>
+
+</div>
